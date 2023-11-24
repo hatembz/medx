@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: kBlueColor),
           useMaterial3: true,
           fontFamily: 'source-sans-pro',
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: AppBarTheme(iconTheme: IconThemeData(color: kBlueColor)),
           textTheme: TextTheme(
             bodyMedium: TextStyle(
               color: Colors.black,

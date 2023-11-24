@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medx/ui/auth/authanticate_screen.dart';
+import 'package:medx/ui/auth/signin_screen.dart';
+import 'package:medx/ui/auth/signup_screen.dart';
 import 'package:medx/ui/auth/splash_screen.dart';
 import 'package:medx/ui/reusable_components/buttons/custom_button.dart';
 import 'package:medx/ui/reusable_components/widgets/onboarding_item.dart';
@@ -65,7 +68,7 @@ class _LandingPageState extends State<LandingPage> {
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: height * 0.03),
           child: OutlinedButton(
               onPressed: () =>
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen())),
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SigninScreen())),
               child: Text(
                 'skip',
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(color: kBlueColor),
@@ -82,7 +85,7 @@ class _LandingPageState extends State<LandingPage> {
               title: 'Sign up',
               onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SplashScreen()),
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
               ),
             )),
         SizedBox(height: height * 0.04),
