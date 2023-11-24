@@ -8,3 +8,4 @@ const kPinkColor = Color(0xFFFD43B3);
 const kLightBlueColor = Color(0xFF00C9E4);
 const kYellowColor = Color(0xFFFDA625);
 const kGreenColor = Color(0xFF00CC6A);
+const kdarkblue = Color(0x192972FE);
