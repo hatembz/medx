@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medx/ui/auth/forgot_password.dart';
 import 'package:medx/ui/auth/signup_screen.dart';
-import 'package:medx/ui/reusable_components/buttons/custom_button.dart';
-import 'package:medx/ui/reusable_components/inputs/custom_text_field.dart';
+import 'package:medx/reusable_components/buttons/custom_button.dart';
+import 'package:medx/reusable_components/inputs/custom_text_field.dart';
+import 'package:medx/reusable_components/widgets/loading_dialog.dart';
+import 'package:medx/ui/home/home_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/svg_icons.dart';
 
@@ -70,24 +72,13 @@ class SigninScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: MediaQuery.sizeOf(context).height * 0.02),
                 child: CustomButton(
                   title: 'Sign in',
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => SimpleDialog(children: [
-                        SizedBox(
-                          height: 40,
-                          width: 40,
-                          child: Center(
-                            heightFactor: 40,
-                            widthFactor: 40,
-                            child: CircularProgressIndicator(
-                              color: kBlueColor,
-                              backgroundColor: Colors.grey,
-                            ),
-                          ),
-                        ),
-                      ]),
-                    );
+                  onTap: () async {
+                    await showDialog(context: context, builder: (context) => LoadingDialog());
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
                   },
                 ),
               ),

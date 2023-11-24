@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medx/ui/auth/signin_screen.dart';
-import 'package:medx/ui/reusable_components/buttons/custom_button.dart';
-import 'package:medx/ui/reusable_components/inputs/custom_text_field.dart';
+import 'package:medx/reusable_components/buttons/custom_button.dart';
+import 'package:medx/reusable_components/inputs/custom_text_field.dart';
 import 'package:medx/utils/constants.dart';
 
 class SignUpScreen extends StatefulWidget {

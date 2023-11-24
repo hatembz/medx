@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medx/ui/reusable_components/buttons/custom_button.dart';
+import 'package:medx/ui/auth/code_verification_screen.dart';
+import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
 
@@ -156,7 +157,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ),
             ),
             Spacer(),
-            CustomButton(title: 'continue'),
+            CustomButton(
+              title: 'continue',
+              enabled: isSelected1 || isSelected2,
+              onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => CodeVerificationScreen())),
+            ),
             gap(context, MediaQuery.sizeOf(context).height * 0.048)
           ],
         ),

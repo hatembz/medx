@@ -3,8 +3,8 @@ import 'package:medx/ui/auth/authanticate_screen.dart';
 import 'package:medx/ui/auth/signin_screen.dart';
 import 'package:medx/ui/auth/signup_screen.dart';
 import 'package:medx/ui/auth/splash_screen.dart';
-import 'package:medx/ui/reusable_components/buttons/custom_button.dart';
-import 'package:medx/ui/reusable_components/widgets/onboarding_item.dart';
+import 'package:medx/reusable_components/buttons/custom_button.dart';
+import 'package:medx/reusable_components/widgets/onboarding_item.dart';
 import 'package:medx/utils/constants.dart';
 
 class LandingPage extends StatefulWidget {

@@ -6,9 +6,11 @@ class CustomButton extends StatelessWidget {
     this.width,
     required this.title,
     this.onTap,
+    this.enabled = true,
   });
 
   final double? width;
+  final bool enabled;
   final String title;
   final void Function()? onTap;
   @override
@@ -27,7 +29,9 @@ class CustomButton extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment(-0.71, 0.71),
             end: Alignment(0.71, -0.71),
-            colors: [Color(0xFF2972FE), Color(0xFF6399FF)],
+            colors: enabled
+                ? [Color(0xFF2972FE), Color(0xFF6399FF)]
+                : [Color(0xFF2972FE).withOpacity(.4), Color(0xFF6399FF).withOpacity(.4)],
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
