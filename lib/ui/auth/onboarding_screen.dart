@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medx/ui/auth/authanticate_screen.dart';
-import 'package:medx/ui/auth/signin_screen.dart';
+import 'package:get/get.dart';
+import 'package:medx/ui/auth/sign_in/signin_screen.dart';
 import 'package:medx/ui/auth/signup_screen.dart';
-import 'package:medx/ui/auth/splash_screen.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/reusable_components/widgets/onboarding_item.dart';
 import 'package:medx/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -15,12 +15,21 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  bool isChecked = false;
+  @override
+  void initState() {
+    super.initState();
+    markVisited();
+  }
+
+  Future markVisited() async {
+    SharedPreferences.getInstance().then((prefs) => prefs.setBool("onboardingVisited", true));
+  }
+
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    double height = context.height;
+    double width = context.width;
     return Scaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +80,7 @@ class _LandingPageState extends State<LandingPage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => SigninScreen())),
               child: Text(
                 'skip',
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(color: kBlueColor),
+                style: context.textTheme.labelMedium?.copyWith(color: kBlueColor),
               ),
               style: OutlinedButton.styleFrom(
                 fixedSize: Size(width, 50),

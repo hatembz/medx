@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medx/utils/constants.dart';
 
 class OnBoardingItem extends StatelessWidget {
@@ -24,7 +25,7 @@ class OnBoardingItem extends StatelessWidget {
       children: [
         Container(
           height: height * 0.5,
-          width: MediaQuery.of(context).size.width,
+          width: context.width,
           color: backgroundColor,
           child: Stack(
             alignment: Alignment.bottomCenter,
@@ -35,7 +36,7 @@ class OnBoardingItem extends StatelessWidget {
           padding: EdgeInsets.only(bottom: height * 0.01, top: height * 0.04),
           child: Text(
             title,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(color: kBlueColor),
+            style: context.textTheme.titleMedium?.copyWith(color: kBlueColor),
           ),
         ),
         Padding(
@@ -43,7 +44,7 @@ class OnBoardingItem extends StatelessWidget {
           child: Text(
             discription,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.displaySmall,
+            style: context.textTheme.displaySmall,
           ),
         ),
         Padding(
