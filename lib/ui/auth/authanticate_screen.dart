@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:medx/ui/auth/signin_screen.dart';
+import 'package:get/get.dart';
+import 'package:medx/ui/auth/sign_in/signin_screen.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/utils/constants.dart';
 
@@ -35,10 +36,10 @@ class AuthanticateScreen extends StatelessWidget {
                       context, MaterialPageRoute(builder: (context) => SigninScreen())),
                   child: Text(
                     'Sign in',
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(color: kBlueColor),
+                    style: context.textTheme.labelMedium?.copyWith(color: kBlueColor),
                   ),
                   style: OutlinedButton.styleFrom(
-                    fixedSize: Size(MediaQuery.of(context).size.width, 50),
+                    fixedSize: Size(context.width, 50),
                     shape: const StadiumBorder(),
                     side: const BorderSide(width: 2, color: kBlueColor),
                   )),

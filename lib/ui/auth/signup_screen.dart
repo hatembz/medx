@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medx/ui/auth/signin_screen.dart';
+import 'package:get/get.dart';
+import 'package:medx/ui/auth/sign_in/signin_screen.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/reusable_components/inputs/custom_text_field.dart';
 import 'package:medx/utils/constants.dart';
@@ -17,12 +18,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('Profile Details', style: Theme.of(context).textTheme.headlineMedium),
+        title: Text('Profile Details', style: context.textTheme.headlineMedium),
         iconTheme: IconThemeData(color: kBlueColor),
       ),
       bottomNavigationBar: Padding(
-        padding:
-            EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height * 0.044, left: 24, right: 24),
+        padding: EdgeInsets.only(bottom: context.height * 0.044, left: 24, right: 24),
         child: CustomButton(
           title: 'Next',
           onTap: () =>
@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Center(
                 child: Container(
                   height: 110,
@@ -46,25 +46,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Padding(
                 padding: const EdgeInsets.only(left: 14, bottom: 8),
-                child: Text('full Name', style: Theme.of(context).textTheme.displaySmall),
+                child: Text('full Name', style: context.textTheme.displaySmall),
               ),
               CustomTextField(hintText: 'Full Name'),
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Padding(
                 padding: const EdgeInsets.only(left: 14, bottom: 8),
-                child: Text('Email', style: Theme.of(context).textTheme.displaySmall),
+                child: Text('Email', style: context.textTheme.displaySmall),
               ),
               CustomTextField(hintText: 'Email'),
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Padding(
                 padding: const EdgeInsets.only(left: 14, bottom: 8),
-                child: Text('Gender', style: Theme.of(context).textTheme.displaySmall),
+                child: Text('Gender', style: context.textTheme.displaySmall),
               ),
               DropdownButtonFormField<String>(
-                style: Theme.of(context).textTheme.displaySmall,
+                style: context.textTheme.displaySmall,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(horizontal: 27, vertical: 11),
                   hintText: "male",
@@ -97,16 +97,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 }).toList(),
                 onChanged: (o) {},
               ),
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Padding(
                 padding: const EdgeInsets.only(left: 14, bottom: 8),
-                child: Text('Date of Birth', style: Theme.of(context).textTheme.displaySmall),
+                child: Text('Date of Birth', style: context.textTheme.displaySmall),
               ),
               CustomTextField(hintText: 'DD-MM-YY'),
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.024),
+              SizedBox(height: context.height * 0.024),
               Padding(
                 padding: const EdgeInsets.only(left: 14, bottom: 8),
-                child: Text('Password', style: Theme.of(context).textTheme.displaySmall),
+                child: Text('Password', style: context.textTheme.displaySmall),
               ),
               CustomTextField(
                 hintText: 'Password',
