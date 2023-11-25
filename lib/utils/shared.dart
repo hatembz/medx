@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medx/utils/constants.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
 Widget gap(BuildContext context, [double? height]) {
-  return SizedBox(height: height ?? MediaQuery.sizeOf(context).height * 0.024);
+  return SizedBox(height: height ?? context.height * 0.024);
 }
 
 PinTheme get pinPutDecoration {
