@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoadingDialog extends StatefulWidget {
   const LoadingDialog({super.key});
@@ -10,14 +11,14 @@ class LoadingDialog extends StatefulWidget {
 class _LoadingDialogState extends State<LoadingDialog> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 3)).then((value) => Navigator.pop(context));
+    Future.delayed(Duration(seconds: 1)).then((value) => Navigator.pop(context));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.2),
+      padding: EdgeInsets.symmetric(horizontal: context.width * 0.2),
       child: AlertDialog(
         surfaceTintColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),

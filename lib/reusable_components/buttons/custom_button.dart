@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -18,12 +19,12 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width ?? MediaQuery.of(context).size.width,
+        width: width ?? context.width,
         height: 50,
         child: Center(
             child: Text(
           title,
-          style: Theme.of(context).textTheme.labelMedium?.copyWith(color: Colors.white),
+          style: context.textTheme.labelMedium?.copyWith(color: Colors.white),
         )),
         decoration: ShapeDecoration(
           gradient: LinearGradient(
@@ -33,9 +34,7 @@ class CustomButton extends StatelessWidget {
                 ? [Color(0xFF2972FE), Color(0xFF6399FF)]
                 : [Color(0xFF2972FE).withOpacity(.4), Color(0xFF6399FF).withOpacity(.4)],
           ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(32),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
         ),
         // style: OutlinedButton.styleFrom(fixedSize: Size(width, 50),backgroundColor: )),
       ),
