@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/MedxIcons.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -31,11 +31,13 @@ class MedxIcons {
   static const IconData tasks = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData medicine = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData messenger = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData notification = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData notification =
+      IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData patients = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData profile = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData homefilled = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData homefilled =
+      IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData instagram = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData linkedin = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData logout = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -46,10 +48,16 @@ class MedxIcons {
   static const IconData brain = IconData(0xe816, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData care = IconData(0xe817, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clinic = IconData(0xe818, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData consultation = IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData consultation =
+      IconData(0xe819, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData ear = IconData(0xe81a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData experiance = IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData experiance =
+      IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData facebook = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData filter = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData google = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData warning = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData eye = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lock = IconData(0xe821, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData edit = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
