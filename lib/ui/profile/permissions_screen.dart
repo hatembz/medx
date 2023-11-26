@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:medx/reusable_components/widgets/custom_switch_item.dart';
 import 'package:medx/utils/shared.dart';
 
-class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+class PermissionsScreen extends StatefulWidget {
+  const PermissionsScreen({Key? key}) : super(key: key);
 
   @override
-  State<NotificationScreen> createState() => _NotificationScreenState();
+  State<PermissionsScreen> createState() => _PermissionsScreenState();
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _PermissionsScreenState extends State<PermissionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Notification', style: context.textTheme.headlineMedium)),
