@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medx/reusable_components/buttons/custom_icon_button.dart';
 import 'package:medx/reusable_components/widgets/logout_modal_sheet.dart';
 import 'package:medx/reusable_components/widgets/profile_item_card.dart';
 import 'package:medx/ui/profile/invite_friends_screen.dart';
-import 'package:medx/ui/profile/notification_screen.dart';
+import 'package:medx/ui/profile/permissions_screen.dart';
 import 'package:medx/ui/profile/security_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
@@ -31,25 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(width: 20),
               Text('Profile', style: context.textTheme.headlineMedium),
               Spacer(),
-              Container(
-                  decoration: ShapeDecoration(
-                    color: Color(0x192972FE),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                    shadows: [
-                      BoxShadow(
-                        color: Color(0x145A6CEA),
-                        blurRadius: 50,
-                        offset: Offset(0, 0),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                  child: IconButton(
-                    iconSize: 24,
-                    icon: Icon(MedxIcons.edit),
-                    color: kBlueColor,
-                    onPressed: () {},
-                  ))
+              CustomIconButton(icon: MedxIcons.edit, onTap: () {})
             ]),
             gap(context),
             Row(
@@ -110,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 title: 'Notification',
                 icon: MedxIcons.bell,
                 ontap: () => Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => NotificationScreen()))),
+                    context, MaterialPageRoute(builder: (context) => PermissionsScreen()))),
             Divider(color: Colors.grey[200]),
             ProfileItemCard(
                 title: 'Security',

@@ -26,6 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     return [
       PersistentBottomNavBarItem(
           icon: Icon(MedxIcons.homefilled),
+          inactiveIcon: Icon(MedxIcons.home_empty),
           title: 'Home',
           activeColorPrimary: kBlueColor,
           inactiveColorPrimary: kBlueColor,
@@ -37,14 +38,16 @@ class _MainScreenState extends State<MainScreen> {
           inactiveColorPrimary: kBlueColor,
           textStyle: context.textTheme.bodyMedium?.copyWith(color: kBlueColor)),
       PersistentBottomNavBarItem(
-          icon: Icon(MedxIcons.tasks),
+          icon: Icon(MedxIcons.history_filled),
+          inactiveIcon: Icon(MedxIcons.tasks),
           iconSize: 24,
-          title: 'Search',
+          title: 'History',
           activeColorPrimary: kBlueColor,
           inactiveColorPrimary: kBlueColor,
           textStyle: context.textTheme.bodyMedium?.copyWith(color: kBlueColor)),
       PersistentBottomNavBarItem(
-          icon: Icon(MedxIcons.profile),
+          icon: Icon(MedxIcons.profile_filled),
+          inactiveIcon: Icon(MedxIcons.profile),
           title: 'Profile',
           activeColorPrimary: kBlueColor,
           inactiveColorPrimary: kBlueColor,
