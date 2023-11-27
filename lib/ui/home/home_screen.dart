@@ -4,10 +4,17 @@ import 'package:medx/reusable_components/buttons/custom_icon_button.dart';
 import 'package:medx/reusable_components/inputs/custom_search_bar.dart';
 import 'package:medx/reusable_components/widgets/decorated_card.dart';
 import 'package:medx/reusable_components/widgets/medical_specialty_item.dart';
+import 'package:medx/ui/Appointments/doctor_profile_screen.dart';
+import 'package:medx/ui/home/favorite_doctor_screen.dart';
 import 'package:medx/ui/home/notification_screen.dart';
+import 'package:medx/ui/home/specialist_doctor_screeen.dart';
+import 'package:medx/ui/home/top_doctors_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
+import 'package:medx/utils/shared.dart';
+import 'package:medx/utils/shared.dart';
 import 'package:medx/utils/svg_icons.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -34,11 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Image.asset('assets/icons/logoBlue.png', width: 35, height: 35),
                     SizedBox(width: context.width * 0.03),
-                    Expanded(
-                      child: SizedBox(
-                        child: Text('Doctorek', style: context.textTheme.headlineMedium),
-                      ),
-                    ),
+                    Text('Doctorek', style: context.textTheme.headlineMedium),
                     Spacer(),
                     CustomIconButton(
                         icon: MedxIcons.bell,
@@ -46,7 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => Navigator.push(context,
                             MaterialPageRoute(builder: (context) => NotificationScreen()))),
                     const SizedBox(width: 16),
-                    CustomIconButton(icon: MedxIcons.heart, iconSize: 20, onTap: () {}),
+                    CustomIconButton(
+                        icon: MedxIcons.heart,
+                        iconSize: 20,
+                        onTap: () => Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => FavoriteDoctorScreen()))),
                   ],
                 ),
               ),
@@ -82,7 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text('Special Doctor', style: context.textTheme.bodyMedium),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SpecialistDoctorScreeen()));
+                            },
                             child: Text('View All',
                                 style: context.textTheme.bodyMedium?.copyWith(color: kBlueColor)))
                       ],
@@ -99,53 +111,91 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                       Text('Top Doctor', style: context.textTheme.bodyMedium),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) => TopDoctorsScreen()));
+                          },
                           child: Text('View All',
                               style: context.textTheme.bodyMedium?.copyWith(color: kBlueColor)))
                     ]),
                     SizedBox(
                       height: context.height * 0.26,
                       child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        // shrinkWrap: true,
-                        padding: EdgeInsets.all(10),
-                        children: [
-                          DoctorCard(
-                              isOnline: true,
-                              rating: 4.5,
-                              title: "DR.Bellamy N",
-                              reviews: 135,
-                              specialty: "viralogist"),
-                          SizedBox(width: 20),
-                          DoctorCard(
-                              isOnline: false,
-                              rating: 4.5,
-                              title: "DR.Bellamy N",
-                              reviews: 135,
-                              specialty: "viralogist"),
-                          SizedBox(width: 20),
-                          DoctorCard(
-                              isOnline: false,
-                              rating: 4.5,
-                              title: "DR.Bellamy N",
-                              reviews: 135,
-                              specialty: "viralogist"),
-                          SizedBox(width: 20),
-                          DoctorCard(
-                              isOnline: true,
-                              rating: 4.5,
-                              title: "DR.Bellamy N",
-                              reviews: 135,
-                              specialty: "viralogist"),
-                          SizedBox(width: 20),
-                          DoctorCard(
-                              isOnline: false,
-                              rating: 4.5,
-                              title: "DR.Bellamy N",
-                              reviews: 135,
-                              specialty: "viralogist"),
-                        ],
-                      ),
+                          scrollDirection: Axis.horizontal,
+                          padding: EdgeInsets.all(10),
+                          children: [
+                            DoctorCard(
+                                isOnline: true,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                            SizedBox(width: 20),
+                            DoctorCard(
+                                isOnline: true,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                            SizedBox(width: 20),
+                            DoctorCard(
+                                isOnline: true,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                            SizedBox(width: 20),
+                            DoctorCard(
+                                isOnline: true,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                            SizedBox(width: 20),
+                            DoctorCard(
+                                isOnline: false,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                            SizedBox(width: 20),
+                            DoctorCard(
+                                isOnline: true,
+                                rating: 4.5,
+                                title: "DR.Bellamy N",
+                                reviews: 135,
+                                specialty: "viralogist",
+                                ontap: () => PersistentNavBarNavigator.pushNewScreen(
+                                      context,
+                                      screen: DoctorProfileScreen(doctor: doctor),
+                                      withNavBar: false,
+                                    )),
+                          ]),
                     )
                   ],
                 ),
