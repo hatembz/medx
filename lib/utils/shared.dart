@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medx/models/doctor_model.dart';
+import 'package:medx/reusable_components/widgets/decorated_card.dart';
 import 'package:medx/reusable_components/widgets/medical_specialty_item.dart';
 import 'package:medx/utils/svg_icons.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:pinput/pinput.dart';
 
 Widget gap(BuildContext context, [double? height]) {
@@ -69,3 +72,16 @@ List<Widget> medicalSpecialties = [
       secondaryColor: Color(0xFFFF7070),
       title: 'Surgeon'),
 ];
+
+Doctor doctor = Doctor(
+  name: 'Dr. Eleanor Pena',
+  email: '',
+  areaOfExpertise: 'Cardio specialistr - Oran Hospital',
+  rating: 4.3,
+  reviews: 230,
+  isFavorite: true,
+  imagePath: "assets/images/doc_image2.png",
+  totalPatients: 1000,
+  workingDays: 'mon - sat',
+  yearsOfExperience: 10,
+);

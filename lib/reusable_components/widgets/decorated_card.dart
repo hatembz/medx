@@ -13,6 +13,7 @@ class DoctorCard extends StatelessWidget {
     required this.rating,
     required this.reviews,
     this.hasHeart = false,
+    this.ontap,
   });
 
   final bool isOnline;
@@ -21,75 +22,78 @@ class DoctorCard extends StatelessWidget {
   final double rating;
   final int reviews;
   final bool hasHeart;
-
+  final void Function()? ontap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: context.height * 0.2,
-      height: context.height * 0.25,
-      decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-                width: 1, strokeAlign: BorderSide.strokeAlignCenter, color: Color(0xFFDADADA)),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          shadows: [
-            BoxShadow(
-                color: Color(0x0F000000), blurRadius: 60, offset: Offset(0, 10), spreadRadius: 0)
-          ]),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (!hasHeart)
-            gap(context)
-          else
-            Padding(
-              padding: const EdgeInsets.only(top: 8, right: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: ShapeDecoration(
-                        color: kdarkblue,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      ),
-                      child: Icon(MedxIcons.heart, size: 15, color: kBlueColor)),
-                ],
-              ),
+    return GestureDetector(
+      onTap: ontap,
+      child: Container(
+        width: context.height * 0.2,
+        height: context.height * 0.25,
+        decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                  width: 1, strokeAlign: BorderSide.strokeAlignCenter, color: Color(0xFFDADADA)),
+              borderRadius: BorderRadius.circular(20),
             ),
-          Stack(children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.asset('assets/images/doc_image2.png',
-                    height: 80, width: 80, fit: BoxFit.fill)),
-            if (isOnline)
-              Positioned(
-                top: 0,
-                right: 5,
-                child: Container(
-                  height: 18,
-                  width: 18,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: kBlueColor,
-                      border: Border.all(width: 3, color: Colors.white)),
+            shadows: [
+              BoxShadow(
+                  color: Color(0x0F000000), blurRadius: 60, offset: Offset(0, 10), spreadRadius: 0)
+            ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            if (!hasHeart)
+              gap(context)
+            else
+              Padding(
+                padding: const EdgeInsets.only(top: 8, right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: ShapeDecoration(
+                          color: kdarkblue,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        ),
+                        child: Icon(MedxIcons.heart, size: 15, color: kBlueColor)),
+                  ],
                 ),
-              )
-          ]),
-          gap(context),
-          Text(title, style: context.textTheme.displaySmall),
-          Text(specialty, style: context.textTheme.titleSmall?.copyWith(color: Colors.grey)),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.star, color: Colors.yellow, size: 16),
-              Text("$rating ($reviews reviews)",
-                  style: context.textTheme.titleSmall?.copyWith(color: Colors.grey)),
-            ],
-          )
-        ],
+              ),
+            Stack(children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Image.asset('assets/images/doc_image2.png',
+                      height: 80, width: 80, fit: BoxFit.fill)),
+              if (isOnline)
+                Positioned(
+                  top: 0,
+                  right: 5,
+                  child: Container(
+                    height: 18,
+                    width: 18,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: kBlueColor,
+                        border: Border.all(width: 3, color: Colors.white)),
+                  ),
+                )
+            ]),
+            gap(context),
+            Text(title, style: context.textTheme.displaySmall),
+            Text(specialty, style: context.textTheme.titleSmall?.copyWith(color: Colors.grey)),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.star, color: Colors.yellow, size: 16),
+                Text("$rating ($reviews reviews)",
+                    style: context.textTheme.titleSmall?.copyWith(color: Colors.grey)),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
