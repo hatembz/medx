@@ -54,7 +54,6 @@ class MedxIcons {
   static const IconData experiance =
       IconData(0xe81b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData facebook = IconData(0xe81c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData filter = IconData(0xe81d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData google = IconData(0xe81e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData warning = IconData(0xe81f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData eye = IconData(0xe820, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -67,4 +66,5 @@ class MedxIcons {
   static const IconData home_empty =
       IconData(0xe825, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData heart_1 = IconData(0xe826, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData filter = IconData(0xe827, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
