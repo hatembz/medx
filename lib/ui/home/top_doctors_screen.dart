@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medx/models/doctor_model.dart';
 import 'package:medx/reusable_components/buttons/custom_icon_button.dart';
 import 'package:medx/reusable_components/widgets/favorite_doctor_card.dart';
 import 'package:medx/utils/constants.dart';

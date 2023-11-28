@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medx/reusable_components/buttons/custom_actionship.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
+import 'package:medx/reusable_components/widgets/appointment_card.dart';
+import 'package:medx/ui/Appointments/Patient_details_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
-import 'package:medx/utils/svg_icons.dart';
 
 class AppointmentDetailScreen extends StatefulWidget {
   const AppointmentDetailScreen({Key? key, required this.date}) : super(key: key);
@@ -64,7 +65,7 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
               ),
               gap(context),
               Text('choose the hour', style: context.textTheme.bodyMedium),
-              gap(context),
+              SizedBox(height: 10),
               Wrap(
                 spacing: 12,
                 runSpacing: 12,
@@ -125,9 +126,9 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                   ),
                 ],
               ),
-              gap(context),
+              SizedBox(height: 10),
               Text('fee information', style: context.textTheme.bodyMedium),
-              gap(context),
+              SizedBox(height: 10),
               AppointmentTypeCard(
                 discription: 'Can messaging with doctor',
                 icon: Icons.message,
@@ -167,90 +168,29 @@ class _AppointmentDetailScreenState extends State<AppointmentDetailScreen> {
                 }),
               ),
               gap(context),
-              CustomButton(title: 'Next'),
+              CustomButton(
+                title: 'Next',
+                enabled: (isMessageSession || isVideoSession || isVoiceSession) &&
+                    (eveningSelected || morningSelected) &&
+                    hourSelected != '',
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PatientDetailsScreen(
+                                chosenHour: hourSelected,
+                                appointmentdate: widget.date,
+                                appointmentType: isMessageSession
+                                    ? AppointmentType.message
+                                    : isVideoSession
+                                        ? AppointmentType.videoCall
+                                        : AppointmentType.voiceCall,
+                              )));
+                },
+              ),
               gap(context)
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class AppointmentTypeCard extends StatelessWidget {
-  const AppointmentTypeCard({
-    super.key,
-    required this.isSelected,
-    required this.title,
-    required this.discription,
-    required this.icon,
-    required this.price,
-    this.ontap,
-  });
-  final bool isSelected;
-  final String title, discription;
-  final IconData icon;
-  final int price;
-  final void Function()? ontap;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: ontap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        decoration: !isSelected
-            ? ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1, color: Color(0xFFEBEEF2)),
-                borderRadius: BorderRadius.circular(16),
-              ))
-            : ShapeDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(-0.71, 0.71),
-                  end: Alignment(0.71, -0.71),
-                  colors: [Color(0xFF2972FE), Color(0xFF6399FF)],
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-                padding: const EdgeInsets.all(16),
-                decoration: ShapeDecoration(
-                  color: isSelected ? Colors.white : Color(0xFFEAF1FF),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-                ),
-                child: Icon(icon, size: 24, color: kBlueColor)),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title,
-                      style: context.textTheme.labelMedium
-                          ?.copyWith(color: isSelected ? Colors.white : Colors.black)),
-                  const SizedBox(height: 2),
-                  SizedBox(
-                      width: double.infinity,
-                      child: Text(discription,
-                          style: context.textTheme.labelSmall
-                              ?.copyWith(color: isSelected ? Colors.white : Colors.black))),
-                ],
-              ),
-            ),
-            const SizedBox(width: 12),
-            Text('\$${price}',
-                textAlign: TextAlign.right,
-                style: context.textTheme.titleMedium
-                    ?.copyWith(color: isSelected ? Colors.white : kBlueColor)),
-          ],
         ),
       ),
     );
