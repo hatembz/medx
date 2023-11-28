@@ -4,13 +4,9 @@ import 'package:medx/utils/constants.dart';
 class CustomTextField extends StatelessWidget {
   CustomTextField({
     Key? key,
-    // this.texteditingController,
     this.validator,
     this.onchanged,
     this.onSubmit,
-    this.prefix,
-    this.suffix,
-    // this.suffix,
     required this.hintText,
     this.prefixIcon,
     this.suffixIcon,
@@ -19,14 +15,15 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     // this.backgroundcolor = kcBackgroundColor,
     this.maxLines,
+    this.controller,
+    this.onIconTaped,
   }) : super(key: key);
-  // final TextEditingController? texteditingController;
+  final TextEditingController? controller;
   final String? hintText;
   final String? Function(String?)? validator;
   final String? Function(String?)? onSubmit;
   final Function(String?)? onchanged;
-  final Widget? prefix;
-  final Widget? suffix;
+  final void Function()? onIconTaped;
   final TextInputAction? textInputAction;
 
   final TextInputType? keyboardType;
@@ -41,16 +38,11 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Color(0xFFDADADA)),
-          borderRadius: BorderRadius.circular(32),
-        ),
-        shadows: [
-          BoxShadow(
-              color: Color(0x196A769A), blurRadius: 35, offset: Offset(0, 19), spreadRadius: 0)
-        ],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+        shadows: [BoxShadow(color: Color(0x196A769A), blurRadius: 35, offset: Offset(0, 19))],
       ),
       child: TextFormField(
+        controller: controller,
         cursorColor: kBlueColor,
         keyboardType: keyboardType,
         textInputAction: textInputAction,
@@ -64,38 +56,31 @@ class CustomTextField extends StatelessWidget {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32),
-            borderSide: const BorderSide(color: Color(0xffDADADA), width: .6),
+            borderSide: const BorderSide(color: kBlueColor, width: 2),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32),
-            borderSide: const BorderSide(color: kBlueColor, width: .6),
+            borderSide: const BorderSide(color: kBlueColor, width: 2),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(color: Color(0xffDADADA), width: .6),
+            borderSide: BorderSide(
+                color: (controller?.text.isNotEmpty ?? false) ? kBlueColor : Color(0xffDADADA),
+                width: 2),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(32),
-            borderSide: BorderSide(color: kRedColor, width: .4),
+            borderSide: BorderSide(color: kRedColor, width: 2),
           ),
-          prefixIcon: prefix != null
-              ? prefix
-              : prefixIcon == null
-                  ? null
-                  : Icon(
-                      prefixIcon,
-                      color: Color(0xffDADADA),
-                      // size: pSh(context: context, percentage: .025),
-                    ),
-          suffixIcon: suffix != null
-              ? suffix
-              : suffixIcon == null
-                  ? null
-                  : Icon(
-                      suffixIcon,
-                      color: Color(0xffDADADA),
-                      // size: pSh(context: context, percentage: .025),
-                    ),
+          prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, color: Color(0xffDADADA)),
+          suffixIcon: suffixIcon == null
+              ? null
+              : IconButton(
+                  onPressed: onIconTaped,
+                  icon: Icon(
+                    suffixIcon,
+                    color: Color(0xffDADADA),
+                  )),
         ),
         validator: validator,
         onChanged: onchanged,

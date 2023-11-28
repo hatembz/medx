@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medx/models/doctor_model.dart';
-import 'package:medx/reusable_components/widgets/decorated_card.dart';
 import 'package:medx/reusable_components/widgets/medical_specialty_item.dart';
 import 'package:medx/utils/svg_icons.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:pinput/pinput.dart';
 
 Widget gap(BuildContext context, [double? height]) {
