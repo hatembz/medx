@@ -5,7 +5,7 @@ import 'package:medx/ui/auth/signup_screen.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/reusable_components/inputs/custom_text_field.dart';
 import 'package:medx/reusable_components/widgets/loading_dialog.dart';
-import 'package:medx/ui/main_screen.dart';
+import 'package:medx/ui/main%20screen/main_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/svg_icons.dart';
 

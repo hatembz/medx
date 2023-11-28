@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medx/ui/home/history_screen.dart';
-import 'package:medx/ui/home/home_screen.dart';
-import 'package:medx/ui/profile/profile_screen.dart';
-import 'package:medx/ui/home/schedual_screen.dart';
+import 'package:medx/ui/main%20screen/history_screen.dart';
+import 'package:medx/ui/main%20screen/home/home_screen.dart';
+import 'package:medx/ui/main%20screen/profile/profile_screen.dart';
+import 'package:medx/ui/main%20screen/schedual_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/svg_icons.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';

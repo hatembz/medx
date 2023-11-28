@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:medx/reusable_components/buttons/custom_actionship.dart';
 import 'package:medx/reusable_components/buttons/custom_button.dart';
 import 'package:medx/reusable_components/inputs/custom_text_field.dart';
-import 'package:medx/ui/home/home_screen.dart';
+import 'package:medx/ui/main%20screen/home/home_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
 

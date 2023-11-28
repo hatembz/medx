@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:medx/reusable_components/buttons/custom_icon_button.dart';
 import 'package:medx/reusable_components/inputs/custom_search_bar.dart';
 import 'package:medx/reusable_components/widgets/medical_specialty_detailed.dart';
-import 'package:medx/ui/home/favorite_doctor_screen.dart';
+import 'package:medx/ui/main%20screen/home/favorite_doctor_screen.dart';
 import 'package:medx/utils/constants.dart';
 import 'package:medx/utils/shared.dart';
 import 'package:medx/utils/svg_icons.dart';
